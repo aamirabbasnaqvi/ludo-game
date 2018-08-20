@@ -1,0 +1,347 @@
+$green: #01a14a;
+$red: #ed1c24;
+$blue: #1c89dd;
+$yellow: #ffde17;
+
+.ludo-box {
+    width: 900px;
+    height: 900px;
+    margin: auto;
+    .row-with-coin-homes {
+        display: flex;
+    }
+
+    .row-without-coin-homes {
+
+        display: flex;
+
+        .final-destination {
+            min-width: 180px;
+            max-width: 180px;
+
+            min-height: 180px;
+            max-height: 180px;
+
+            background-color: purple;
+        }
+    }
+}
+
+
+.coin-home {
+    max-width: 360px;
+    min-width: 360px;
+    height: 360px;
+    display: inline-flex;
+    padding: 60px;
+    box-sizing: border-box;
+    border-style: solid;
+    border-color: #000;
+
+    .coins-box {
+        background-color: white;
+        border: solid 1px;
+        display: flex;
+        flex-flow: row wrap;
+        flex: auto;
+
+        .coin {
+            height: 60px;
+            border: solid 3px;
+            flex: 0 1 60px;
+            margin: 28px;
+            border-radius: 50%;
+            box-sizing: border-box;
+        }
+    }
+
+    @mixin coins-home-mixin($home-color) {
+        background-color: $home-color;
+
+        .coins-box {
+            border-color: darken($home-color, 10%);
+        }
+        .coin {
+            border-color: darken($home-color, 10%);
+            background-color: $home-color;
+        }
+    }
+
+    &.green {
+        @include coins-home-mixin($green);
+        border-width: 1px 1px 0 0;
+    }
+
+    &.red {
+        @include coins-home-mixin($red);
+        border-width: 1px 0 0 1px;
+    }
+
+    &.blue {
+        @include coins-home-mixin($blue);
+        border-width: 0 0 1px 1px;
+    }
+
+    &.yellow {
+        @include coins-home-mixin($yellow);
+        border-width: 0 1px 1px 0;
+    }
+}
+
+.final-destination {
+    position: relative;
+
+    .arrow {
+        display: inline-block;
+        position: absolute;
+        content: "";
+        border-width: 90px;
+        border-style: solid;
+
+        &.red-arrow {
+            border-color: transparent transparent transparent $red;
+            top: 0;
+            left: 0;
+        }
+        &.green-arrow {
+            border-color: $green transparent transparent transparent;
+            top: 0;
+            left: 0;
+        }
+        &.blue-arrow {
+            border-color: transparent transparent $blue transparent;
+            left: 0;
+            bottom: 0;
+        }
+        &.yellow-arrow {
+            border-color: transparent $yellow transparent transparent;
+            bottom: 0;
+            right: 0;
+        }
+    }
+}
+
+
+.coin-gallery {
+    display: flex;
+
+    &.vertical {
+        .coin-path {
+            flex-direction: column;
+        }
+
+        .coin-path {
+
+            .path-block {
+                &:first-child {
+                    border-top-width: 1px;
+                }
+            }
+
+            &:last-child {
+                .path-block {
+                    border-right-width: 1px;
+                }
+            }
+        }
+    }
+
+    .star {
+        position: relative;
+
+        &:before,
+        &:after {
+            display: inline-block;
+            position: absolute;
+            content: "";
+            border-style: solid;
+
+            left: 10px;
+        }
+
+        &:before {
+            border-width: 0 20px calc(1.732 * 20px) 20px;
+            border-color: transparent transparent #f1eded transparent;
+            top: 7px;
+        }
+
+        &:after {
+            border-width: 0 20px calc(1.732 * 20px) 20px;
+            border-color: transparent transparent #f1eded transparent;
+
+            top: 8px;
+            left: 14px;
+            transform: rotate(61deg);
+        }
+
+        &.red-star{
+        	&:before {
+        		border-color: transparent transparent lighten($red,10%) transparent;
+        	}
+
+        	&:after {
+        		border-color: transparent transparent lighten($red,10%) transparent;
+        	}
+
+        }
+
+        &.blue-star{
+        	&:before {
+        		border-color: transparent transparent lighten($blue,10%) transparent;
+        	}
+
+        	&:after {
+        		border-color: transparent transparent lighten($blue,10%) transparent;
+        	}
+        }
+
+        &.yellow-star{
+        	&:before {
+        		border-color: transparent transparent lighten($yellow,15%) transparent;
+        	}
+
+        	&:after {
+        		border-color: transparent transparent lighten($yellow,15%) transparent;
+        	}
+        }
+
+        &.green-star{
+        	&:before {
+        		border-color: transparent transparent lighten($green,10%) transparent;
+        	}
+
+        	&:after {
+        		border-color: transparent transparent lighten($green,10%) transparent;
+        	}
+        }
+    }
+
+    &.horizontal {
+        flex-direction: column;
+        .coin-path {
+            flex-direction: row;
+
+            &:first-child {
+                .path-block {
+                    border-top-width: 1px;
+                }
+            }
+
+            .path-block {
+                &:last-child {
+                    border-right-width: 1px;
+                }
+            }
+        }
+    }
+
+    &.red-gallery {
+        .coin-path {
+            &:nth-child(2) {
+                .path-block {
+                    background-color: $red;
+
+                    &:first-child {
+                        background-color: white;
+                    }
+                }
+            }
+
+            &:nth-child(1) {
+                .path-block {
+                    &:nth-child(2) {
+                        background-color: $red;
+                    }
+                }
+            }
+        }
+    }
+
+    &.green-gallery {
+        .coin-path {
+            &:nth-child(2) {
+                .path-block {
+                    background-color: $green;
+
+                    &:first-child {
+                        background-color: white;
+                    }
+                }
+            }
+
+            &:nth-child(3) {
+                .path-block {
+                    &:nth-child(2) {
+                        background-color: $green;
+                    }
+                }
+            }
+        }
+    }
+
+
+    &.yellow-gallery {
+        .coin-path {
+            &:nth-child(2) {
+                .path-block {
+                    background-color: $yellow;
+
+                    &:last-child {
+                        background-color: white;
+                    }
+                }
+            }
+
+            &:nth-child(3) {
+                .path-block {
+                    &:nth-child(5) {
+                        background-color: $yellow;
+                    }
+                }
+            }
+        }
+    }
+
+
+    &.blue-gallery {
+        .coin-path {
+            &:nth-child(2) {
+                .path-block {
+                    background-color: $blue;
+
+                    &:last-child {
+                        background-color: white;
+                    }
+                }
+            }
+
+            &:nth-child(1) {
+                .path-block {
+                    &:nth-child(5) {
+                        background-color: $blue;
+                    }
+                }
+            }
+        }
+    }
+
+
+    .coin-path {
+        display: flex;
+
+        .path-block {
+            min-width: 60px;
+            max-width: 60px;
+            min-height: 60px;
+            max-height: 60px;
+
+            background-color: #fff;
+            box-sizing: border-box;
+
+            border-color: #000;
+            border-style: solid;
+
+            border-width: 0 0 1px 1px;
+        }
+    }
+}

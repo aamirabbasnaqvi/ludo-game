@@ -1,0 +1,183 @@
+.ludo-box {
+  width: 900px;
+  height: 900px;
+  margin: auto; }
+  .ludo-box .row-with-coin-homes {
+    display: flex; }
+  .ludo-box .row-without-coin-homes {
+    display: flex; }
+    .ludo-box .row-without-coin-homes .final-destination {
+      min-width: 180px;
+      max-width: 180px;
+      min-height: 180px;
+      max-height: 180px;
+      background-color: purple; }
+
+.coin-home {
+  max-width: 360px;
+  min-width: 360px;
+  height: 360px;
+  display: inline-flex;
+  padding: 60px;
+  box-sizing: border-box;
+  border-style: solid;
+  border-color: #000; }
+  .coin-home .coins-box {
+    background-color: white;
+    border: solid 1px;
+    display: flex;
+    flex-flow: row wrap;
+    flex: auto; }
+    .coin-home .coins-box .coin {
+      height: 60px;
+      border: solid 3px;
+      flex: 0 1 60px;
+      margin: 28px;
+      border-radius: 50%;
+      box-sizing: border-box; }
+  .coin-home.green {
+    background-color: #01a14a;
+    border-width: 1px 1px 0 0; }
+    .coin-home.green .coins-box {
+      border-color: #016e33; }
+    .coin-home.green .coin {
+      border-color: #016e33;
+      background-color: #01a14a; }
+  .coin-home.red {
+    background-color: #ed1c24;
+    border-width: 1px 0 0 1px; }
+    .coin-home.red .coins-box {
+      border-color: #c61017; }
+    .coin-home.red .coin {
+      border-color: #c61017;
+      background-color: #ed1c24; }
+  .coin-home.blue {
+    background-color: #1c89dd;
+    border-width: 0 0 1px 1px; }
+    .coin-home.blue .coins-box {
+      border-color: #166db0; }
+    .coin-home.blue .coin {
+      border-color: #166db0;
+      background-color: #1c89dd; }
+  .coin-home.yellow {
+    background-color: #ffde17;
+    border-width: 0 1px 1px 0; }
+    .coin-home.yellow .coins-box {
+      border-color: #e3c300; }
+    .coin-home.yellow .coin {
+      border-color: #e3c300;
+      background-color: #ffde17; }
+
+.final-destination {
+  position: relative; }
+  .final-destination .arrow {
+    display: inline-block;
+    position: absolute;
+    content: "";
+    border-width: 90px;
+    border-style: solid; }
+    .final-destination .arrow.red-arrow {
+      border-color: transparent transparent transparent #ed1c24;
+      top: 0;
+      left: 0; }
+    .final-destination .arrow.green-arrow {
+      border-color: #01a14a transparent transparent transparent;
+      top: 0;
+      left: 0; }
+    .final-destination .arrow.blue-arrow {
+      border-color: transparent transparent #1c89dd transparent;
+      left: 0;
+      bottom: 0; }
+    .final-destination .arrow.yellow-arrow {
+      border-color: transparent #ffde17 transparent transparent;
+      bottom: 0;
+      right: 0; }
+
+.coin-gallery {
+  display: flex; }
+  .coin-gallery.vertical .coin-path {
+    flex-direction: column; }
+  .coin-gallery.vertical .coin-path .path-block:first-child {
+    border-top-width: 1px; }
+  .coin-gallery.vertical .coin-path:last-child .path-block {
+    border-right-width: 1px; }
+  .coin-gallery .star {
+    position: relative; }
+    .coin-gallery .star:before, .coin-gallery .star:after {
+      display: inline-block;
+      position: absolute;
+      content: "";
+      border-style: solid;
+      left: 10px; }
+    .coin-gallery .star:before {
+      border-width: 0 20px calc(1.732 * 20px) 20px;
+      border-color: transparent transparent #f1eded transparent;
+      top: 7px; }
+    .coin-gallery .star:after {
+      border-width: 0 20px calc(1.732 * 20px) 20px;
+      border-color: transparent transparent #f1eded transparent;
+      top: 8px;
+      left: 14px;
+      transform: rotate(61deg); }
+    .coin-gallery .star.red-star:before {
+      border-color: transparent transparent #f14b52 transparent; }
+    .coin-gallery .star.red-star:after {
+      border-color: transparent transparent #f14b52 transparent; }
+    .coin-gallery .star.blue-star:before {
+      border-color: transparent transparent #45a1e7 transparent; }
+    .coin-gallery .star.blue-star:after {
+      border-color: transparent transparent #45a1e7 transparent; }
+    .coin-gallery .star.yellow-star:before {
+      border-color: transparent transparent #ffe964 transparent; }
+    .coin-gallery .star.yellow-star:after {
+      border-color: transparent transparent #ffe964 transparent; }
+    .coin-gallery .star.green-star:before {
+      border-color: transparent transparent #01d461 transparent; }
+    .coin-gallery .star.green-star:after {
+      border-color: transparent transparent #01d461 transparent; }
+  .coin-gallery.horizontal {
+    flex-direction: column; }
+    .coin-gallery.horizontal .coin-path {
+      flex-direction: row; }
+      .coin-gallery.horizontal .coin-path:first-child .path-block {
+        border-top-width: 1px; }
+      .coin-gallery.horizontal .coin-path .path-block:last-child {
+        border-right-width: 1px; }
+  .coin-gallery.red-gallery .coin-path:nth-child(2) .path-block {
+    background-color: #ed1c24; }
+    .coin-gallery.red-gallery .coin-path:nth-child(2) .path-block:first-child {
+      background-color: white; }
+  .coin-gallery.red-gallery .coin-path:nth-child(1) .path-block:nth-child(2) {
+    background-color: #ed1c24; }
+  .coin-gallery.green-gallery .coin-path:nth-child(2) .path-block {
+    background-color: #01a14a; }
+    .coin-gallery.green-gallery .coin-path:nth-child(2) .path-block:first-child {
+      background-color: white; }
+  .coin-gallery.green-gallery .coin-path:nth-child(3) .path-block:nth-child(2) {
+    background-color: #01a14a; }
+  .coin-gallery.yellow-gallery .coin-path:nth-child(2) .path-block {
+    background-color: #ffde17; }
+    .coin-gallery.yellow-gallery .coin-path:nth-child(2) .path-block:last-child {
+      background-color: white; }
+  .coin-gallery.yellow-gallery .coin-path:nth-child(3) .path-block:nth-child(5) {
+    background-color: #ffde17; }
+  .coin-gallery.blue-gallery .coin-path:nth-child(2) .path-block {
+    background-color: #1c89dd; }
+    .coin-gallery.blue-gallery .coin-path:nth-child(2) .path-block:last-child {
+      background-color: white; }
+  .coin-gallery.blue-gallery .coin-path:nth-child(1) .path-block:nth-child(5) {
+    background-color: #1c89dd; }
+  .coin-gallery .coin-path {
+    display: flex; }
+    .coin-gallery .coin-path .path-block {
+      min-width: 60px;
+      max-width: 60px;
+      min-height: 60px;
+      max-height: 60px;
+      background-color: #fff;
+      box-sizing: border-box;
+      border-color: #000;
+      border-style: solid;
+      border-width: 0 0 1px 1px; }
+
+/*# sourceMappingURL=ludo.css.map */
